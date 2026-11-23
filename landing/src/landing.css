@@ -1513,3 +1513,19 @@ h4 {
     margin-left: auto;
   }
 }
+
+/* mobile chrome: keep the nav pill on one line, tighten the banner */
+@media (max-width: 720px) {
+  .nav .pill {
+    white-space: nowrap;
+    padding: 8px 12px;
+    font-size: 12.5px;
+    gap: 6px;
+  }
+
+  .banner {
+    font-size: 12px;
+    padding: 6px 12px;
+    line-height: 1.35;
+  }
+}

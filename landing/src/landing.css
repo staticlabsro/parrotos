@@ -1529,3 +1529,60 @@ h4 {
     line-height: 1.35;
   }
 }
+
+/* --------------------------------------------------- nav icon + card headroom */
+.gh {
+  display: inline-flex;
+  align-items: center;
+  color: var(--muted);
+}
+
+.gh:hover {
+  color: var(--ink);
+}
+
+/* a little air above the window inside every gradient card */
+.shot {
+  padding-top: 34px;
+}
+
+.panel {
+  padding-top: 40px;
+}
+
+@media (max-width: 720px) {
+  .pill-get {
+    display: none;
+  }
+
+  .gh svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .shot {
+    padding-top: 24px;
+  }
+
+  .panel {
+    padding-top: 28px;
+  }
+}
+
+/* icon-only copy button */
+.install-copy {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  color: var(--muted);
+}
+
+.install-copy svg {
+  display: block;
+}
+
+.install-copy:hover {
+  color: var(--ink);
+}

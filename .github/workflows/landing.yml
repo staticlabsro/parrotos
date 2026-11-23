@@ -1,0 +1,47 @@
+name: Landing
+
+# Rebuilds statsparrot.com from landing/ and deploys the Worker that owns the
+# custom domain. The Worker name is fixed in landing/wrangler.jsonc, so a deploy
+# replaces the page in place and leaves DNS alone.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "landing/**"
+      - ".github/workflows/landing.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: landing
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    if: github.repository == 'staticlabsro/parrotos'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: landing
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: landing/package-lock.json
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to Cloudflare
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: landing
+          command: deploy

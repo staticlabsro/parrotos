@@ -3,6 +3,9 @@
 Agent-augmented business intelligence: connect a data source, describe your metrics as files, and
 get dashboards, an OLAP engine and an agent that explains what moved.
 
+![The Statsparrot dashboard on the retail orders demo: revenue and order KPIs, a revenue trend, a
+channel split and a combo chart](docs/images/dashboard.png)
+
 ## Use it locally
 
 Prebuilt binaries exist for macOS (arm64) and Linux (amd64). Building from a checkout needs Go 1.26,

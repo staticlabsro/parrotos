@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { DataWorkspace } from "./product/Workspace";
-import { PlatformView } from "./product/PlatformViews";
 import { ConnectorIcon, CONNECTOR_LABELS, type ConnectorName } from "./product/ConnectorIcons";
 import { Parrot } from "./product/Parrot";
 import { GITHUB_URL, LICENSE_URL, LOCAL_URL } from "./site";

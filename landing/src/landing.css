@@ -1433,3 +1433,83 @@ h4 {
     padding: 9px 20px;
   }
 }
+
+/* ------------------------------------------------- mobile: fixed-size windows
+   On small screens the screenshot stops scaling with the container. It keeps a
+   fixed width, is anchored to the panel's bottom-left corner and is allowed to
+   run past the panel edges, where the gradient clips it. */
+@media (max-width: 720px) {
+  .stage {
+    height: 420px;
+  }
+
+  .stage-window {
+    left: 16px;
+    right: auto;
+    width: 540px;
+    top: 46px;
+    bottom: -70px;
+    height: auto;
+  }
+
+  .shot {
+    height: 250px;
+    padding: 16px 0 0 16px;
+  }
+
+  .shot .app-img {
+    position: absolute;
+    width: 540px;
+    height: auto;
+    max-width: none;
+    left: 16px;
+    bottom: -70px;
+  }
+
+  .chat {
+    inset: auto 14px 0 14px;
+  }
+
+  .panel {
+    height: 260px;
+    padding: 16px 0 0;
+  }
+
+  .panel-img {
+    position: absolute;
+    width: 540px;
+    max-width: none;
+    left: 16px;
+    bottom: -60px;
+    margin: 0;
+  }
+}
+
+/* containment for the fixed-size mobile windows */
+.panel {
+  position: relative;
+}
+
+.page {
+  overflow-x: clip;
+}
+
+/* the install command must not widen the page on small screens */
+@media (max-width: 720px) {
+  .install {
+    flex-wrap: wrap;
+    row-gap: 6px;
+    padding: 10px 12px;
+    border-radius: 14px;
+  }
+
+  .install code {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    font-size: 12px;
+  }
+
+  .install-copy {
+    margin-left: auto;
+  }
+}

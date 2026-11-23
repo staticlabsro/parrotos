@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { DataWorkspace } from "./product/Workspace";
 import { PlatformView } from "./product/PlatformViews";
 import { ConnectorIcon, CONNECTOR_LABELS, type ConnectorName } from "./product/ConnectorIcons";
@@ -155,6 +156,18 @@ function Arrow() {
 }
 
 export default function App() {
+  const [copied, setCopied] = useState(false);
+
+  const copyInstall = async () => {
+    try {
+      await navigator.clipboard.writeText("curl -fsSL https://get.statsparrot.com | sh");
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 1600);
+    } catch {
+      setCopied(false);
+    }
+  };
+
   return (
     <div className="page">
       <a className="skip" href="#main">Skip to content</a>
@@ -193,7 +206,16 @@ export default function App() {
             <p className="hero-sub">
               Statsparrot reads your warehouse and your files, writes the query, and answers with a chart you can check.
             </p>
-            <a className="pill" href="#start">Get early access <Arrow /></a>
+            <div className="hero-actions">
+              <a className="pill" href="#start">Get early access <Arrow /></a>
+              <div className="install">
+                <span className="install-prompt">$</span>
+                <code>curl -fsSL https://get.statsparrot.com | sh</code>
+                <button className="install-copy" type="button" onClick={copyInstall}>
+                  {copied ? "Copied" : "Copy"}
+                </button>
+              </div>
+            </div>
           </div>
 
           <div className="wrap">

@@ -1340,3 +1340,61 @@ h4 {
     inset: auto 12px 0 12px;
   }
 }
+
+/* --------------------------------------------------- hero install command */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.install {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 9px 9px 16px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: #fff;
+  font-size: 13.5px;
+  color: var(--ink);
+}
+
+.install-prompt {
+  color: var(--muted-2);
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+.install code {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 13px;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.install-copy {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  font-size: 12.5px;
+  color: var(--muted);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.install-copy:hover {
+  color: var(--ink);
+  border-color: var(--muted-2);
+}
+
+@media (max-width: 720px) {
+  .install {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .install code {
+    font-size: 12px;
+  }
+}

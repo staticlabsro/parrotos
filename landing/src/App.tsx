@@ -212,7 +212,9 @@ export default function App() {
               <a className="pill" href="#start">Get early access <Arrow /></a>
               <div className="install">
                 <span className="install-prompt">$</span>
-                <code>curl -fsSL https://get.statsparrot.com | sh</code>
+                <div className="install-scroll">
+                  <code>curl -fsSL https://get.statsparrot.com | sh</code>
+                </div>
                 <button
                   className="install-copy"
                   type="button"
@@ -277,7 +279,7 @@ export default function App() {
                   <p className="agent-text">{agent.text}</p>
                   <a className="link" href="#channels">{agent.link} <Arrow /></a>
 
-                  <div className="shot">
+                  <div className={agent.label === "Ask" ? "shot shot-chat" : "shot"}>
                     {agent.label === "Ask" ? (
                       <div className="chat">
                         <div className="chat-row">

@@ -1586,3 +1586,119 @@ h4 {
 .install-copy:hover {
   color: var(--ink);
 }
+
+/* ------------------------------- install box: one line, scrolls, floating copy */
+.install {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 9px 9px 16px;
+  max-width: 100%;
+}
+
+.install-scroll {
+  min-width: 0;
+  flex: 1 1 auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-right: 42px;
+  mask-image: linear-gradient(to right, #000 calc(100% - 34px), transparent);
+}
+
+.install-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.install-scroll code {
+  display: block;
+  white-space: nowrap;
+}
+
+.install-copy {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  border: 1px solid var(--rule);
+}
+
+/* ------------------------------- chat panel and varied crops in the rows */
+.shot-chat {
+  height: 330px;
+}
+
+.chat {
+  width: 56%;
+}
+
+.row:nth-child(2) .shot .app-img { object-position: 40% bottom; }
+.row:nth-child(3) .shot .app-img { object-position: 60% bottom; }
+.row:nth-child(4) .shot .app-img { object-position: 45% bottom; }
+
+@media (max-width: 720px) {
+  .install {
+    padding: 8px 8px 8px 12px;
+    gap: 7px;
+  }
+
+  .install-scroll {
+    padding-right: 38px;
+    mask-image: linear-gradient(to right, #000 calc(100% - 30px), transparent);
+  }
+
+  .shot-chat {
+    height: 260px;
+  }
+
+  .chat {
+    inset: auto 12px 0 12px;
+  }
+}
+
+/* let the command fade out before it reaches the floating copy button */
+.install-scroll {
+  padding-right: 58px;
+  mask-image: linear-gradient(to right, #000 calc(100% - 56px), transparent);
+}
+
+@media (max-width: 720px) {
+  .install-scroll {
+    padding-right: 54px;
+    mask-image: linear-gradient(to right, #000 calc(100% - 52px), transparent);
+  }
+}
+
+/* the command always stays on one line, scrolling instead of wrapping */
+.install code,
+.install-scroll code {
+  display: inline-block;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: keep-all;
+}
+
+/* the copy button sits at the frame's end, not on top of the text */
+.install-scroll {
+  padding-right: 0;
+  mask-image: none;
+  -webkit-mask-image: none;
+}
+
+.install-copy {
+  position: static;
+  transform: none;
+  margin-left: auto;
+}
+
+/* on mobile the command and the copy button share one row */
+@media (max-width: 720px) {
+  .install {
+    flex-wrap: nowrap;
+    row-gap: 0;
+    padding: 8px 8px 8px 12px;
+  }
+}

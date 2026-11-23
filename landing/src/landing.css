@@ -1398,3 +1398,38 @@ h4 {
     font-size: 12px;
   }
 }
+
+/* ------------------------------------------------------------ slim top bar */
+.banner {
+  padding: 7px 20px;
+  font-size: 12.5px;
+}
+
+.nav-inner {
+  padding: 11px 40px;
+}
+
+.nav .brand {
+  font-size: 18px;
+}
+
+.nav-links {
+  font-size: 14px;
+  gap: 26px;
+}
+
+.nav-actions {
+  font-size: 14px;
+  gap: 16px;
+}
+
+.nav .pill {
+  padding: 8px 15px;
+  font-size: 13.5px;
+}
+
+@media (max-width: 720px) {
+  .nav-inner {
+    padding: 9px 20px;
+  }
+}
